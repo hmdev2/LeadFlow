@@ -24,15 +24,11 @@ No MVP, essa complexidade estrutural não deverá ser exposta ao usuário final.
 
 O MVP do LeadFlow CRM atenderá inicialmente três perfis principais de usuário:
 
-| Perfil | Papel principal |
-
+| Perfil           | Papel principal                                      |
 | ---------------- | ---------------------------------------------------- |
-
-| Administrador | Gerenciar sistema, usuários e permissões |
-
+| Administrador    | Gerenciar sistema, usuários e permissões             |
 | Gestor Comercial | Gerenciar a operação comercial e acompanhar a equipe |
-
-| Vendedor / SDR | Atender e acompanhar os próprios leads |
+| Vendedor / SDR   | Atender e acompanhar os próprios leads               |
 
 ## 3. Padrão de Identificação dos Requisitos
 
