@@ -1,1040 +1,755 @@
-\# Escopo do MVP
+# Escopo do MVP
 
+## 1. Objetivo do Documento
 
-
-\## 1. Objetivo do Documento
-
-
-
-Este documento tem como objetivo definir o escopo do MVP do \*\*LeadFlow CRM\*\*, estabelecendo quais funcionalidades deverão fazer parte da primeira versão funcional do sistema e quais recursos ficarão fora deste primeiro ciclo de desenvolvimento.
-
-
+Este documento tem como objetivo definir o escopo do MVP do **LeadFlow CRM**, estabelecendo quais funcionalidades deverão fazer parte da primeira versão funcional do sistema e quais recursos ficarão fora deste primeiro ciclo de desenvolvimento.
 
 O escopo do MVP serve como referência para orientar o planejamento, a priorização, o desenvolvimento, os testes e a validação inicial do produto.
 
-
-
 Este documento também tem a função de evitar aumento indevido de escopo, mantendo o foco nas funcionalidades essenciais para validar a proposta principal do sistema: centralizar, organizar e acompanhar leads em uma pequena equipe comercial.
 
-
-
-\## 2. Contexto do MVP
-
-
+## 2. Contexto do MVP
 
 O LeadFlow CRM será desenvolvido para atender pequenas equipes comerciais que atualmente recebem leads por diferentes canais, como site, Instagram, LinkedIn, indicação, Google Ads, eventos e WhatsApp.
 
-
-
 Atualmente, esses contatos ficam espalhados em planilhas, conversas, anotações soltas e ferramentas desconectadas. Isso dificulta o acompanhamento das oportunidades, prejudica a distribuição de responsabilidades e aumenta o risco de leads serem esquecidos ou mal acompanhados.
-
-
 
 O MVP deve resolver esse problema central por meio de uma solução web simples, organizada e funcional, permitindo que a equipe cadastre leads, acompanhe o andamento das oportunidades, registre interações, crie tarefas de acompanhamento e visualize indicadores básicos da operação comercial.
 
-
-
-\## 3. Objetivo do MVP
-
-
+## 3. Objetivo do MVP
 
 O objetivo do MVP é entregar uma primeira versão funcional do LeadFlow CRM, capaz de validar o fluxo principal de gestão de leads.
 
-
-
 Nesta primeira versão, o sistema deve permitir que uma pequena equipe comercial consiga:
 
+- Centralizar os leads em um único sistema.
 
+- Cadastrar e consultar informações dos leads.
 
-\* Centralizar os leads em um único sistema.
+- Acompanhar oportunidades em um pipeline visual.
 
-\* Cadastrar e consultar informações dos leads.
+- Mover leads entre etapas do processo comercial.
 
-\* Acompanhar oportunidades em um pipeline visual.
+- Registrar interações realizadas com cada lead.
 
-\* Mover leads entre etapas do processo comercial.
+- Criar tarefas e lembretes de acompanhamento.
 
-\* Registrar interações realizadas com cada lead.
+- Visualizar indicadores básicos da operação comercial.
 
-\* Criar tarefas e lembretes de acompanhamento.
+- Capturar leads por meio de um formulário público.
 
-\* Visualizar indicadores básicos da operação comercial.
-
-\* Capturar leads por meio de um formulário público.
-
-\* Controlar o acesso dos usuários conforme seus perfis.
-
-
+- Controlar o acesso dos usuários conforme seus perfis.
 
 O MVP não tem como objetivo entregar uma plataforma completa de automação comercial, mas sim validar a estrutura principal de um CRM funcional e bem organizado.
 
+## 4. Funcionalidades Incluídas no MVP
 
-
-\## 4. Funcionalidades Incluídas no MVP
-
-
-
-\## 4.1 Autenticação e Usuários
-
-
+## 4.1 Autenticação e Usuários
 
 O sistema deverá possuir autenticação de usuários para permitir acesso seguro à área interna do CRM.
 
-
-
 O MVP deverá permitir que usuários acessem o sistema por meio de login e senha, com controle básico de sessão.
-
-
 
 Também deverá existir uma estrutura inicial de usuários com perfis de acesso, permitindo diferenciar as permissões entre Administrador, Gestor Comercial e Vendedor / SDR.
 
-
-
 Funcionalidades previstas:
 
+- Login de usuários.
 
+- Logout de usuários.
 
-\* Login de usuários.
+- Proteção de rotas internas.
 
-\* Logout de usuários.
+- Cadastro de usuários.
 
-\* Proteção de rotas internas.
+- Edição de usuários.
 
-\* Cadastro de usuários.
+- Definição de perfil de acesso.
 
-\* Edição de usuários.
+- Controle básico de permissões por perfil.
 
-\* Definição de perfil de acesso.
-
-\* Controle básico de permissões por perfil.
-
-
-
-\## 4.2 Gestão de Leads
-
-
+## 4.2 Gestão de Leads
 
 O sistema deverá permitir o cadastro e gerenciamento dos leads recebidos pela equipe comercial.
 
-
-
 Cada lead deverá conter as informações principais necessárias para identificação, acompanhamento e qualificação da oportunidade.
-
-
 
 Campos mínimos previstos para o lead:
 
+- Nome.
 
+- E-mail.
 
-\* Nome.
+- Telefone.
 
-\* E-mail.
+- Empresa.
 
-\* Telefone.
+- Origem do contato.
 
-\* Empresa.
+- Interesse demonstrado.
 
-\* Origem do contato.
+- Responsável pelo atendimento.
 
-\* Interesse demonstrado.
+- Observações.
 
-\* Responsável pelo atendimento.
+- Status atual.
 
-\* Observações.
+- Data de cadastro.
 
-\* Status atual.
-
-\* Data de cadastro.
-
-\* Data da última atualização.
-
-
+- Data da última atualização.
 
 Origens iniciais previstas:
 
+- Site.
 
+- Instagram.
 
-\* Site.
+- LinkedIn.
 
-\* Instagram.
+- Indicação.
 
-\* LinkedIn.
+- Google Ads.
 
-\* Indicação.
+- Eventos.
 
-\* Google Ads.
+- WhatsApp.
 
-\* Eventos.
-
-\* WhatsApp.
-
-\* Outro.
-
-
+- Outro.
 
 Funcionalidades previstas:
 
+- Cadastro de leads.
 
+- Edição de leads.
 
-\* Cadastro de leads.
+- Visualização de leads.
 
-\* Edição de leads.
+- Listagem de leads.
 
-\* Visualização de leads.
+- Busca por nome, e-mail, telefone ou empresa.
 
-\* Listagem de leads.
+- Filtro por status.
 
-\* Busca por nome, e-mail, telefone ou empresa.
+- Filtro por origem.
 
-\* Filtro por status.
+- Filtro por responsável.
 
-\* Filtro por origem.
+- Definição ou alteração do responsável pelo lead, conforme permissão do usuário.
 
-\* Filtro por responsável.
-
-\* Definição ou alteração do responsável pelo lead, conforme permissão do usuário.
-
-\* Arquivamento ou inativação de leads, quando necessário.
-
-
+- Arquivamento ou inativação de leads, quando necessário.
 
 A exclusão definitiva de leads não será priorizada no MVP. Quando um lead não precisar mais aparecer no fluxo ativo, o sistema deverá preferencialmente permitir seu arquivamento ou inativação.
 
-
-
-\## 4.3 Pipeline Kanban
-
-
+## 4.3 Pipeline Kanban
 
 O sistema deverá possuir um pipeline visual em formato Kanban para acompanhamento das oportunidades comerciais.
 
-
-
 O Kanban será uma das principais telas do MVP, permitindo que a equipe visualize rapidamente em qual etapa cada lead está e quais oportunidades precisam de atenção.
-
-
 
 Status iniciais do pipeline:
 
+- Novo.
 
+- Em contato.
 
-\* Novo.
+- Qualificado.
 
-\* Em contato.
+- Proposta enviada.
 
-\* Qualificado.
+- Negociação.
 
-\* Proposta enviada.
+- Ganho.
 
-\* Negociação.
-
-\* Ganho.
-
-\* Perdido.
-
-
+- Perdido.
 
 Funcionalidades previstas:
 
+- Visualização dos leads separados por status.
 
+- Movimentação de leads entre etapas do pipeline.
 
-\* Visualização dos leads separados por status.
+- Atualização automática do status ao mover um lead.
 
-\* Movimentação de leads entre etapas do pipeline.
+- Visualização resumida dos dados principais do lead no card.
 
-\* Atualização automática do status ao mover um lead.
+- Acesso aos detalhes do lead a partir do card.
 
-\* Visualização resumida dos dados principais do lead no card.
-
-\* Acesso aos detalhes do lead a partir do card.
-
-\* Respeito às permissões de cada perfil de usuário.
-
-
+- Respeito às permissões de cada perfil de usuário.
 
 O Vendedor / SDR deverá visualizar e mover apenas os leads atribuídos a ele ou cadastrados por ele, conforme regra de permissão.
 
-
-
 O Gestor Comercial e o Administrador deverão ter acesso ao pipeline geral, podendo visualizar e mover leads da equipe.
 
-
-
-\## 4.4 Página de Detalhes do Lead
-
-
+## 4.4 Página de Detalhes do Lead
 
 Cada lead deverá possuir uma página de detalhes com informações completas da oportunidade.
 
-
-
 Essa página deverá permitir que usuários autorizados entendam o contexto do lead antes de realizar novos contatos ou atualizações.
-
-
 
 Informações previstas:
 
+- Dados principais do lead.
 
+- Origem do contato.
 
-\* Dados principais do lead.
+- Interesse demonstrado.
 
-\* Origem do contato.
+- Responsável atual.
 
-\* Interesse demonstrado.
+- Status atual.
 
-\* Responsável atual.
+- Observações gerais.
 
-\* Status atual.
+- Histórico de interações.
 
-\* Observações gerais.
+- Tarefas relacionadas.
 
-\* Histórico de interações.
-
-\* Tarefas relacionadas.
-
-\* Datas importantes, como cadastro e última atualização.
-
-
+- Datas importantes, como cadastro e última atualização.
 
 Funcionalidades previstas:
 
+- Visualizar informações completas do lead.
 
+- Editar informações do lead, conforme permissão.
 
-\* Visualizar informações completas do lead.
+- Consultar histórico de interações.
 
-\* Editar informações do lead, conforme permissão.
+- Consultar tarefas vinculadas ao lead.
 
-\* Consultar histórico de interações.
+- Registrar novas interações.
 
-\* Consultar tarefas vinculadas ao lead.
+- Criar novas tarefas relacionadas ao lead.
 
-\* Registrar novas interações.
+- Alterar status da oportunidade, conforme permissão.
 
-\* Criar novas tarefas relacionadas ao lead.
-
-\* Alterar status da oportunidade, conforme permissão.
-
-
-
-\## 4.5 Histórico de Interações
-
-
+## 4.5 Histórico de Interações
 
 O sistema deverá permitir o registro de interações realizadas com cada lead.
 
-
-
 O histórico será usado para manter o contexto do atendimento e evitar perda de informações importantes durante o processo comercial.
-
-
 
 Tipos de interação previstos:
 
+- Ligação.
 
+- WhatsApp.
 
-\* Ligação.
+- E-mail.
 
-\* WhatsApp.
+- Reunião.
 
-\* E-mail.
+- Observação interna.
 
-\* Reunião.
+- Envio de proposta.
 
-\* Observação interna.
+- Mudança de status.
 
-\* Envio de proposta.
-
-\* Mudança de status.
-
-\* Outro tipo de contato.
-
-
+- Outro tipo de contato.
 
 Informações mínimas da interação:
 
+- Tipo de interação.
 
+- Descrição.
 
-\* Tipo de interação.
+- Usuário responsável pelo registro.
 
-\* Descrição.
+- Data e hora do registro.
 
-\* Usuário responsável pelo registro.
-
-\* Data e hora do registro.
-
-\* Lead relacionado.
-
-
+- Lead relacionado.
 
 Funcionalidades previstas:
 
+- Registrar interação em um lead.
 
+- Listar interações em ordem cronológica.
 
-\* Registrar interação em um lead.
+- Visualizar quem registrou cada interação.
 
-\* Listar interações em ordem cronológica.
+- Visualizar quando cada interação foi registrada.
 
-\* Visualizar quem registrou cada interação.
-
-\* Visualizar quando cada interação foi registrada.
-
-\* Registrar observações relevantes sobre o atendimento.
-
-
+- Registrar observações relevantes sobre o atendimento.
 
 No MVP, o histórico será manual. Não haverá integração automática com WhatsApp, e-mail ou outras ferramentas externas.
 
-
-
-\## 4.6 Tarefas e Lembretes
-
-
+## 4.6 Tarefas e Lembretes
 
 O sistema deverá permitir a criação de tarefas relacionadas aos leads.
 
-
-
 As tarefas servirão para organizar follow-ups, retornos, reuniões, envio de propostas e outras ações comerciais necessárias durante o acompanhamento da oportunidade.
-
-
 
 Informações mínimas da tarefa:
 
+- Título.
 
+- Descrição.
 
-\* Título.
+- Lead relacionado.
 
-\* Descrição.
+- Responsável pela tarefa.
 
-\* Lead relacionado.
+- Data de vencimento.
 
-\* Responsável pela tarefa.
+- Status da tarefa.
 
-\* Data de vencimento.
+- Data de criação.
 
-\* Status da tarefa.
-
-\* Data de criação.
-
-\* Data de conclusão, quando aplicável.
-
-
+- Data de conclusão, quando aplicável.
 
 Status iniciais da tarefa:
 
+- Pendente.
 
-
-\* Pendente.
-
-\* Concluída.
-
-
+- Concluída.
 
 Funcionalidades previstas:
 
+- Criar tarefa para um lead.
 
+- Editar tarefa.
 
-\* Criar tarefa para um lead.
+- Marcar tarefa como concluída.
 
-\* Editar tarefa.
+- Listar tarefas vinculadas a um lead.
 
-\* Marcar tarefa como concluída.
+- Visualizar tarefas pendentes.
 
-\* Listar tarefas vinculadas a um lead.
+- Identificar tarefas atrasadas.
 
-\* Visualizar tarefas pendentes.
-
-\* Identificar tarefas atrasadas.
-
-\* Filtrar tarefas por responsável, quando aplicável.
-
-
+- Filtrar tarefas por responsável, quando aplicável.
 
 O Vendedor / SDR deverá criar e acompanhar tarefas relacionadas aos próprios leads.
 
-
-
 O Gestor Comercial deverá visualizar tarefas pendentes e atrasadas da equipe, além de poder criar tarefas para vendedores.
-
-
 
 O Administrador deverá ter acesso amplo às tarefas do sistema.
 
-
-
 No MVP, o lembrete será tratado de forma simples, por meio da data de vencimento da tarefa e da indicação visual de atraso quando a tarefa não for concluída dentro do prazo. Notificações automáticas, alertas por e-mail, push ou integrações externas de lembrete não fazem parte desta primeira versão.
 
-
-
-\## 4.7 Dashboard Básico
-
-
+## 4.7 Dashboard Básico
 
 O sistema deverá possuir um dashboard inicial com indicadores básicos da operação comercial.
 
-
-
 O objetivo do dashboard no MVP é oferecer uma visão rápida da situação dos leads, sem a necessidade de relatórios avançados ou análises complexas.
-
-
 
 Indicadores previstos:
 
+- Total de leads cadastrados.
 
+- Leads novos no mês.
 
-\* Total de leads cadastrados.
+- Leads ganhos.
 
-\* Leads novos no mês.
+- Leads perdidos.
 
-\* Leads ganhos.
+- Taxa de conversão.
 
-\* Leads perdidos.
+- Tarefas atrasadas.
 
-\* Taxa de conversão.
+- Leads por status.
 
-\* Tarefas atrasadas.
+- Leads por origem.
 
-\* Leads por status.
-
-\* Leads por origem.
-
-\* Evolução de oportunidades ao longo do tempo.
-
-
+- Evolução de oportunidades ao longo do tempo.
 
 Funcionalidades previstas:
 
+- Visualização de indicadores gerais.
 
+- Visualização de gráficos ou cards simples.
 
-\* Visualização de indicadores gerais.
+- Filtros básicos, quando necessário.
 
-\* Visualização de gráficos ou cards simples.
+- Dashboard geral para Administrador e Gestor Comercial.
 
-\* Filtros básicos, quando necessário.
-
-\* Dashboard geral para Administrador e Gestor Comercial.
-
-\* Dashboard individual para Vendedor / SDR.
-
-
+- Dashboard individual para Vendedor / SDR.
 
 No MVP, o dashboard deverá ser simples e objetivo, composto por cards, contadores e gráficos básicos. Relatórios analíticos avançados, painéis altamente customizáveis e análises comerciais complexas ficarão fora do escopo inicial.
 
-
-
-\## 4.8 Formulário Público de Captura
-
-
+## 4.8 Formulário Público de Captura
 
 O sistema deverá possuir um formulário público de captura de leads.
 
-
-
 Esse formulário poderá ser usado como página de contato ou solicitação de orçamento, permitindo que um possível cliente envie seus dados sem precisar acessar a área interna do CRM.
-
-
 
 Campos mínimos previstos no formulário público:
 
+- Nome.
 
+- E-mail.
 
-\* Nome.
+- Telefone.
 
-\* E-mail.
+- Empresa.
 
-\* Telefone.
+- Interesse demonstrado.
 
-\* Empresa.
-
-\* Interesse demonstrado.
-
-\* Mensagem ou observação.
-
-
+- Mensagem ou observação.
 
 Comportamento esperado:
 
+- Ao preencher o formulário, um novo lead deverá ser criado automaticamente no CRM.
 
+- A origem do lead deverá ser definida como Site.
 
-\* Ao preencher o formulário, um novo lead deverá ser criado automaticamente no CRM.
+- O lead deverá entrar inicialmente com status Novo.
 
-\* A origem do lead deverá ser definida como Site.
-
-\* O lead deverá entrar inicialmente com status Novo.
-
-\* O lead poderá ficar sem responsável definido ou ser atribuído conforme regra inicial do sistema.
-
-
+- O lead poderá ficar sem responsável definido ou ser atribuído conforme regra inicial do sistema.
 
 Funcionalidades previstas:
 
+- Exibição de formulário público.
 
+- Validação dos campos obrigatórios.
 
-\* Exibição de formulário público.
+- Cadastro automático do lead.
 
-\* Validação dos campos obrigatórios.
+- Confirmação visual após envio.
 
-\* Cadastro automático do lead.
-
-\* Confirmação visual após envio.
-
-\* Registro da origem como Site.
-
-
+- Registro da origem como Site.
 
 No MVP, o formulário público não terá integração com ferramentas externas, campanhas, automações de marketing ou envio automático de e-mails.
 
-
-
-\## 4.9 Permissões Básicas
-
-
+## 4.9 Permissões Básicas
 
 O MVP deverá possuir controle básico de permissões considerando três perfis principais:
 
+- Administrador.
 
+- Gestor Comercial.
 
-\* Administrador.
+- Vendedor / SDR.
 
-\* Gestor Comercial.
-
-\* Vendedor / SDR.
-
-
-
-\## 4.9.1 Administrador
-
-
+## 4.9.1 Administrador
 
 O Administrador será responsável por gerenciar o sistema, usuários e permissões.
 
-
-
 Permissões previstas:
 
+- Gerenciar usuários.
 
+- Definir perfis de acesso.
 
-\* Gerenciar usuários.
+- Visualizar todos os leads.
 
-\* Definir perfis de acesso.
+- Criar e editar leads.
 
-\* Visualizar todos os leads.
+- Arquivar ou inativar leads.
 
-\* Criar e editar leads.
+- Atribuir leads a vendedores.
 
-\* Arquivar ou inativar leads.
+- Trocar responsável por leads.
 
-\* Atribuir leads a vendedores.
+- Acessar o pipeline completo.
 
-\* Trocar responsável por leads.
+- Mover qualquer lead no Kanban.
 
-\* Acessar o pipeline completo.
+- Registrar interações.
 
-\* Mover qualquer lead no Kanban.
+- Criar tarefas.
 
-\* Registrar interações.
+- Criar tarefas para vendedores.
 
-\* Criar tarefas.
+- Visualizar dashboard geral.
 
-\* Criar tarefas para vendedores.
+- Visualizar dashboard individual.
 
-\* Visualizar dashboard geral.
+- Gerenciar configurações básicas do sistema.
 
-\* Visualizar dashboard individual.
-
-\* Gerenciar configurações básicas do sistema.
-
-
-
-\## 4.9.2 Gestor Comercial
-
-
+## 4.9.2 Gestor Comercial
 
 O Gestor Comercial será responsável por acompanhar a operação comercial e gerenciar a distribuição dos leads entre os vendedores.
 
-
-
 Permissões previstas:
 
+- Visualizar todos os leads da equipe.
 
+- Criar leads.
 
-\* Visualizar todos os leads da equipe.
+- Editar leads da equipe.
 
-\* Criar leads.
+- Atribuir leads a vendedores.
 
-\* Editar leads da equipe.
+- Trocar responsável por leads.
 
-\* Atribuir leads a vendedores.
+- Acompanhar o pipeline completo.
 
-\* Trocar responsável por leads.
+- Mover leads da equipe no Kanban.
 
-\* Acompanhar o pipeline completo.
+- Filtrar leads por responsável, origem e status.
 
-\* Mover leads da equipe no Kanban.
+- Registrar interações.
 
-\* Filtrar leads por responsável, origem e status.
+- Criar tarefas.
 
-\* Registrar interações.
+- Criar tarefas para vendedores.
 
-\* Criar tarefas.
+- Visualizar tarefas pendentes da equipe.
 
-\* Criar tarefas para vendedores.
+- Visualizar tarefas atrasadas da equipe.
 
-\* Visualizar tarefas pendentes da equipe.
+- Acompanhar a distribuição de leads entre vendedores.
 
-\* Visualizar tarefas atrasadas da equipe.
+- Visualizar dashboard geral.
 
-\* Acompanhar a distribuição de leads entre vendedores.
+- Visualizar dashboard individual.
 
-\* Visualizar dashboard geral.
-
-\* Visualizar dashboard individual.
-
-
-
-\## 4.9.3 Vendedor / SDR
-
-
+## 4.9.3 Vendedor / SDR
 
 O Vendedor / SDR será responsável pelo atendimento direto dos leads atribuídos a ele ou cadastrados por ele próprio.
 
-
-
 Permissões previstas:
 
+- Cadastrar novos leads.
 
+- Visualizar leads atribuídos a ele.
 
-\* Cadastrar novos leads.
+- Visualizar leads cadastrados por ele próprio.
 
-\* Visualizar leads atribuídos a ele.
+- Editar informações dos seus próprios leads.
 
-\* Visualizar leads cadastrados por ele próprio.
+- Registrar interações nos próprios leads.
 
-\* Editar informações dos seus próprios leads.
+- Criar tarefas nos próprios leads.
 
-\* Registrar interações nos próprios leads.
+- Alterar o status das suas próprias oportunidades.
 
-\* Criar tarefas nos próprios leads.
+- Mover seus próprios leads no pipeline Kanban.
 
-\* Alterar o status das suas próprias oportunidades.
+- Utilizar filtros e busca dentro da sua carteira de leads.
 
-\* Mover seus próprios leads no pipeline Kanban.
+- Visualizar dashboard individual.
 
-\* Utilizar filtros e busca dentro da sua carteira de leads.
-
-\* Visualizar dashboard individual.
-
-
-
-\## 5. Funcionalidades Fora do Escopo do MVP
-
-
+## 5. Funcionalidades Fora do Escopo do MVP
 
 As funcionalidades abaixo não farão parte da primeira versão do sistema.
 
-
-
 Elas poderão ser avaliadas futuramente, após a validação do MVP e conforme novas necessidades do negócio forem identificadas.
-
-
 
 Fora do escopo inicial:
 
+- Integração real com WhatsApp.
 
+- Envio automático de e-mails.
 
-\* Integração real com WhatsApp.
+- Integração com ferramentas externas de e-mail marketing.
 
-\* Envio automático de e-mails.
+- Integração com redes sociais.
 
-\* Integração com ferramentas externas de e-mail marketing.
+- Integração com LinkedIn, Instagram ou Google Ads.
 
-\* Integração com redes sociais.
+- Integração com gateways de pagamento.
 
-\* Integração com LinkedIn, Instagram ou Google Ads.
+- Automações avançadas de funil.
 
-\* Integração com gateways de pagamento.
+- Recursos de inteligência artificial.
 
-\* Automações avançadas de funil.
+- Chat interno.
 
-\* Recursos de inteligência artificial.
+- Discador telefônico.
 
-\* Chat interno.
+- Relatórios comerciais complexos.
 
-\* Discador telefônico.
+- Previsão avançada de vendas.
 
-\* Relatórios comerciais complexos.
+- Gestão financeira.
 
-\* Previsão avançada de vendas.
+- Gestão de contratos.
 
-\* Gestão financeira.
+- Gestão de propostas com assinatura eletrônica.
 
-\* Gestão de contratos.
+- Aplicativo mobile.
 
-\* Gestão de propostas com assinatura eletrônica.
+- Notificações push.
 
-\* Aplicativo mobile.
+- API pública para terceiros.
 
-\* Notificações push.
+- Importação em massa por planilha.
 
-\* API pública para terceiros.
+- Exportação avançada de dados.
 
-\* Importação em massa por planilha.
+- Múltiplas empresas ou multi-tenant.
 
-\* Exportação avançada de dados.
+- Personalização avançada de pipeline.
 
-\* Múltiplas empresas ou multi-tenant.
+- Exclusão definitiva de leads como fluxo comum.
 
-\* Personalização avançada de pipeline.
-
-\* Exclusão definitiva de leads como fluxo comum.
-
-
-
-\## 5.1 Observação sobre Multi-tenant
-
-
+## 5.1 Observação sobre Multi-tenant
 
 O MVP do LeadFlow CRM não contemplará multi-tenant completo nesta primeira versão.
 
-
-
 Isso significa que o sistema não deverá incluir, neste momento, recursos como múltiplas empresas utilizando a plataforma em modelo SaaS, subdomínios por empresa, planos de assinatura, cobrança recorrente, painel de tenants, provisionamento automático de organizações ou isolamento avançado entre bases de clientes.
-
-
 
 Apesar disso, a arquitetura do banco de dados e do software deverá nascer preparada para uma possível evolução futura para um modelo multi-tenant.
 
-
-
 Mesmo operando inicialmente com uma única empresa, as principais entidades do sistema deverão ser modeladas com vínculo a uma empresa ou organização. Isso inclui, principalmente:
 
+- Usuários.
 
+- Leads.
 
-\* Usuários.
+- Tarefas.
 
-\* Leads.
+- Interações.
 
-\* Tarefas.
-
-\* Interações.
-
-\* Configurações.
-
-
+- Configurações.
 
 Essa decisão tem como objetivo evitar complexidade desnecessária no MVP, mantendo o foco na validação do fluxo principal do CRM, mas reduzindo o risco de uma grande refatoração estrutural caso o LeadFlow evolua futuramente para um modelo SaaS ou multi-tenant.
 
-
-
-\## 6. Regras Gerais do MVP
-
-
+## 6. Regras Gerais do MVP
 
 O MVP deverá seguir algumas regras gerais para manter o produto simples, funcional e coerente com sua proposta inicial.
 
-
-
 Regras gerais:
 
+- O sistema deve ser web.
 
+- O foco principal é a gestão de leads.
 
-\* O sistema deve ser web.
+- O pipeline Kanban deve ser uma funcionalidade central do produto.
 
-\* O foco principal é a gestão de leads.
+- Todo lead deve possuir um status.
 
-\* O pipeline Kanban deve ser uma funcionalidade central do produto.
+- Todo lead deve possuir uma origem.
 
-\* Todo lead deve possuir um status.
+- Todo lead pode ter um responsável.
 
-\* Todo lead deve possuir uma origem.
+- Todo lead pode possuir interações.
 
-\* Todo lead pode ter um responsável.
+- Todo lead pode possuir tarefas.
 
-\* Todo lead pode possuir interações.
+- Tarefas devem permitir identificação de atraso.
 
-\* Todo lead pode possuir tarefas.
+- Vendedores devem acessar apenas leads atribuídos a eles ou cadastrados por eles.
 
-\* Tarefas devem permitir identificação de atraso.
+- Gestores Comerciais devem acompanhar a equipe e redistribuir leads quando necessário.
 
-\* Vendedores devem acessar apenas leads atribuídos a eles ou cadastrados por eles.
+- Administradores devem gerenciar usuários, permissões e configurações básicas.
 
-\* Gestores Comerciais devem acompanhar a equipe e redistribuir leads quando necessário.
+- Exclusão definitiva de leads deve ser evitada no MVP.
 
-\* Administradores devem gerenciar usuários, permissões e configurações básicas.
+- Leads que não devem aparecer no fluxo ativo devem ser arquivados ou inativados.
 
-\* Exclusão definitiva de leads deve ser evitada no MVP.
+- As condições específicas para arquivamento ou inativação de leads, incluindo quando essa ação poderá ser realizada por um Gestor Comercial e quando deverá ficar restrita ao Administrador, deverão ser detalhadas posteriormente no documento de regras de negócio.
 
-\* Leads que não devem aparecer no fluxo ativo devem ser arquivados ou inativados.
+- Integrações externas devem ser simuladas ou deixadas para versões futuras.
 
-\* As condições específicas para arquivamento ou inativação de leads, incluindo quando essa ação poderá ser realizada por um Gestor Comercial e quando deverá ficar restrita ao Administrador, deverão ser detalhadas posteriormente no documento de regras de negócio.
+- O sistema deve priorizar clareza, simplicidade e organização.
 
-\* Integrações externas devem ser simuladas ou deixadas para versões futuras.
-
-\* O sistema deve priorizar clareza, simplicidade e organização.
-
-
-
-\## 7. Perfis Atendidos no MVP
-
-
+## 7. Perfis Atendidos no MVP
 
 O MVP do LeadFlow CRM atenderá inicialmente três perfis de usuário.
 
-
-
-| Perfil           | Papel principal                                      |
+| Perfil | Papel principal |
 
 | ---------------- | ---------------------------------------------------- |
 
-| Administrador    | Gerenciar sistema, usuários e permissões             |
+| Administrador | Gerenciar sistema, usuários e permissões |
 
 | Gestor Comercial | Gerenciar a operação comercial e acompanhar a equipe |
 
-| Vendedor / SDR   | Atender e acompanhar os próprios leads               |
+| Vendedor / SDR | Atender e acompanhar os próprios leads |
 
-
-
-\## 7.1 Administrador
-
-
+## 7.1 Administrador
 
 O Administrador será atendido pelo MVP se conseguir gerenciar usuários, controlar permissões, visualizar o sistema de forma ampla e manter os dados operacionais organizados.
 
-
-
-\## 7.2 Gestor Comercial
-
-
+## 7.2 Gestor Comercial
 
 O Gestor Comercial será atendido pelo MVP se conseguir visualizar o pipeline completo, acompanhar a equipe, identificar tarefas pendentes ou atrasadas, atribuir leads e trocar responsáveis quando necessário.
 
-
-
-\## 7.3 Vendedor / SDR
-
-
+## 7.3 Vendedor / SDR
 
 O Vendedor / SDR será atendido pelo MVP se conseguir cadastrar leads, acompanhar suas oportunidades, registrar interações, criar tarefas, mover leads no Kanban e visualizar sua carteira de forma clara.
 
-
-
-\## 8. Critérios de Aceitação do MVP
-
-
+## 8. Critérios de Aceitação do MVP
 
 O MVP será considerado funcional quando permitir a execução dos principais fluxos de uso definidos para o LeadFlow CRM.
 
-
-
 Critérios mínimos de aceitação:
 
+- O usuário consegue acessar o sistema por login.
 
+- O Administrador consegue cadastrar e gerenciar usuários.
 
-\* O usuário consegue acessar o sistema por login.
+- O sistema diferencia permissões entre Administrador, Gestor Comercial e Vendedor / SDR.
 
-\* O Administrador consegue cadastrar e gerenciar usuários.
+- O usuário autorizado consegue cadastrar um lead.
 
-\* O sistema diferencia permissões entre Administrador, Gestor Comercial e Vendedor / SDR.
+- O usuário autorizado consegue editar um lead.
 
-\* O usuário autorizado consegue cadastrar um lead.
+- O usuário autorizado consegue visualizar uma lista de leads.
 
-\* O usuário autorizado consegue editar um lead.
+- A listagem permite busca e filtros básicos.
 
-\* O usuário autorizado consegue visualizar uma lista de leads.
+- O lead possui status, origem e responsável.
 
-\* A listagem permite busca e filtros básicos.
+- O usuário autorizado consegue visualizar o pipeline Kanban.
 
-\* O lead possui status, origem e responsável.
+- O usuário autorizado consegue mover leads entre etapas do Kanban.
 
-\* O usuário autorizado consegue visualizar o pipeline Kanban.
+- A mudança no Kanban atualiza o status do lead.
 
-\* O usuário autorizado consegue mover leads entre etapas do Kanban.
+- O usuário autorizado consegue acessar a página de detalhes do lead.
 
-\* A mudança no Kanban atualiza o status do lead.
+- O usuário autorizado consegue registrar interações no lead.
 
-\* O usuário autorizado consegue acessar a página de detalhes do lead.
+- O usuário autorizado consegue criar tarefas relacionadas ao lead.
 
-\* O usuário autorizado consegue registrar interações no lead.
+- O sistema indica tarefas pendentes.
 
-\* O usuário autorizado consegue criar tarefas relacionadas ao lead.
+- O sistema indica tarefas atrasadas.
 
-\* O sistema indica tarefas pendentes.
+- O dashboard exibe indicadores básicos da operação.
 
-\* O sistema indica tarefas atrasadas.
+- O formulário público permite cadastrar um lead automaticamente.
 
-\* O dashboard exibe indicadores básicos da operação.
+- Leads enviados pelo formulário público entram com origem Site.
 
-\* O formulário público permite cadastrar um lead automaticamente.
+- O Vendedor / SDR visualiza apenas leads atribuídos a ele ou cadastrados por ele.
 
-\* Leads enviados pelo formulário público entram com origem Site.
+- O Gestor Comercial consegue visualizar leads e tarefas da equipe.
 
-\* O Vendedor / SDR visualiza apenas leads atribuídos a ele ou cadastrados por ele.
+- O Administrador consegue visualizar e gerenciar os dados principais do sistema.
 
-\* O Gestor Comercial consegue visualizar leads e tarefas da equipe.
+- O sistema permite arquivar ou inativar leads.
 
-\* O Administrador consegue visualizar e gerenciar os dados principais do sistema.
+- O sistema evita exclusão definitiva de leads como fluxo comum do MVP.
 
-\* O sistema permite arquivar ou inativar leads.
-
-\* O sistema evita exclusão definitiva de leads como fluxo comum do MVP.
-
-
-
-\## 9. Critérios de Sucesso
-
-
+## 9. Critérios de Sucesso
 
 O MVP será considerado bem-sucedido se permitir que uma pequena equipe comercial substitua controles manuais espalhados por um sistema único e organizado.
 
-
-
 Critérios de sucesso:
 
+- A equipe consegue cadastrar e consultar leads em um único lugar.
 
+- Os vendedores conseguem acompanhar suas oportunidades sem depender de planilhas.
 
-\* A equipe consegue cadastrar e consultar leads em um único lugar.
+- O gestor consegue visualizar o andamento geral do pipeline.
 
-\* Os vendedores conseguem acompanhar suas oportunidades sem depender de planilhas.
+- A equipe consegue identificar leads sem acompanhamento.
 
-\* O gestor consegue visualizar o andamento geral do pipeline.
+- A equipe consegue registrar o histórico básico de contatos.
 
-\* A equipe consegue identificar leads sem acompanhamento.
+- A equipe consegue criar tarefas de follow-up.
 
-\* A equipe consegue registrar o histórico básico de contatos.
+- O sistema ajuda a reduzir esquecimentos e atrasos no atendimento.
 
-\* A equipe consegue criar tarefas de follow-up.
+- O dashboard oferece uma visão básica da operação comercial.
 
-\* O sistema ajuda a reduzir esquecimentos e atrasos no atendimento.
+- O formulário público simula um fluxo real de entrada de leads.
 
-\* O dashboard oferece uma visão básica da operação comercial.
+- O sistema transmite a sensação de um produto real, com fluxo claro e interface organizada.
 
-\* O formulário público simula um fluxo real de entrada de leads.
-
-\* O sistema transmite a sensação de um produto real, com fluxo claro e interface organizada.
-
-
-
-\## 10. Observações
-
-
+## 10. Observações
 
 Este documento define o escopo inicial do MVP do LeadFlow CRM.
 
-
-
 As funcionalidades descritas aqui deverão orientar os próximos documentos de planejamento, como requisitos funcionais, requisitos não funcionais, regras de negócio, modelagem de banco de dados, arquitetura, endpoints, telas, backlog e plano de desenvolvimento.
-
-
 
 Qualquer funcionalidade não descrita como parte do MVP deverá ser considerada fora do escopo inicial, salvo decisão posterior registrada em documento próprio.
 
-
-
 O objetivo desta primeira versão é validar o fluxo principal de gestão de leads, mantendo o produto simples, funcional e alinhado às necessidades de uma pequena equipe comercial.
 
-
-
 O escopo do MVP foi aprovado pelo cliente como representação adequada da primeira versão do LeadFlow CRM, estando coerente com o briefing, com as personas definidas e com a proposta de MVP. As observações realizadas pelo cliente foram incorporadas como refinamentos pontuais, sem alteração estrutural do escopo aprovado.
-
-
-
