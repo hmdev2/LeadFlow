@@ -82,17 +82,17 @@ Convenções adotadas:
 
 A modelagem inicial do MVP considera as seguintes entidades principais:
 
-| Entidade | Tabela | Finalidade |
-| -------- | ------ | ---------- |
-| Organização | `organizations` | Representa a empresa ou organização que utiliza o CRM |
-| Usuário | `users` | Representa a conta global de login do usuário |
-| Vínculo do usuário | `organization_users` | Representa o vínculo do usuário com uma organização, incluindo perfil e status |
-| Lead | `leads` | Representa uma oportunidade comercial ou contato recebido |
-| Status do lead | `lead_statuses` | Representa as etapas do pipeline comercial |
-| Origem do lead | `lead_sources` | Representa os canais de entrada dos leads |
-| Interação do lead | `lead_interactions` | Registra interações manuais e eventos automáticos do histórico do lead |
-| Tarefa | `tasks` | Representa tarefas de acompanhamento vinculadas a leads |
-| Configurações da organização | `organization_settings` | Armazena configurações básicas da organização |
+| Entidade                     | Tabela                  | Finalidade                                                                     |
+| ---------------------------- | ----------------------- | ------------------------------------------------------------------------------ |
+| Organização                  | `organizations`         | Representa a empresa ou organização que utiliza o CRM                          |
+| Usuário                      | `users`                 | Representa a conta global de login do usuário                                  |
+| Vínculo do usuário           | `organization_users`    | Representa o vínculo do usuário com uma organização, incluindo perfil e status |
+| Lead                         | `leads`                 | Representa uma oportunidade comercial ou contato recebido                      |
+| Status do lead               | `lead_statuses`         | Representa as etapas do pipeline comercial                                     |
+| Origem do lead               | `lead_sources`          | Representa os canais de entrada dos leads                                      |
+| Interação do lead            | `lead_interactions`     | Registra interações manuais e eventos automáticos do histórico do lead         |
+| Tarefa                       | `tasks`                 | Representa tarefas de acompanhamento vinculadas a leads                        |
+| Configurações da organização | `organization_settings` | Armazena configurações básicas da organização                                  |
 
 ## 6. Diagrama Conceitual Simplificado
 
@@ -125,14 +125,14 @@ A tabela `organizations` deverá armazenar os dados básicos da organização qu
 
 No MVP, o sistema utilizará uma organização principal. Mesmo assim, essa tabela é necessária para manter a estrutura preparada para evolução futura para multi-tenant.
 
-| Campo | Tipo sugerido | Obrigatório | Descrição |
-| ----- | ------------- | ----------- | --------- |
-| id | bigint | Sim | Identificador único da organização |
-| name | varchar | Sim | Nome da organização |
-| slug | varchar | Não | Identificador textual opcional para uso futuro |
-| status | varchar | Sim | Status da organização, como `active` ou `inactive` |
-| created_at | timestamp | Sim | Data de criação do registro |
-| updated_at | timestamp | Sim | Data da última atualização |
+| Campo      | Tipo sugerido | Obrigatório | Descrição                                          |
+| ---------- | ------------- | ----------- | -------------------------------------------------- |
+| id         | bigint        | Sim         | Identificador único da organização                 |
+| name       | varchar       | Sim         | Nome da organização                                |
+| slug       | varchar       | Não         | Identificador textual opcional para uso futuro     |
+| status     | varchar       | Sim         | Status da organização, como `active` ou `inactive` |
+| created_at | timestamp     | Sim         | Data de criação do registro                        |
+| updated_at | timestamp     | Sim         | Data da última atualização                         |
 
 ### Observações
 
@@ -150,14 +150,14 @@ A tabela `users` deverá armazenar a identidade global dos usuários do sistema.
 
 Essa tabela representa a conta de login do usuário, contendo dados que não devem depender diretamente de uma organização específica.
 
-| Campo | Tipo sugerido | Obrigatório | Descrição |
-| ----- | ------------- | ----------- | --------- |
-| id | bigint | Sim | Identificador único do usuário |
-| name | varchar | Sim | Nome do usuário |
-| email | varchar | Sim | E-mail utilizado para login |
-| password | varchar | Sim | Senha armazenada de forma segura |
-| created_at | timestamp | Sim | Data de criação do registro |
-| updated_at | timestamp | Sim | Data da última atualização |
+| Campo      | Tipo sugerido | Obrigatório | Descrição                        |
+| ---------- | ------------- | ----------- | -------------------------------- |
+| id         | bigint        | Sim         | Identificador único do usuário   |
+| name       | varchar       | Sim         | Nome do usuário                  |
+| email      | varchar       | Sim         | E-mail utilizado para login      |
+| password   | varchar       | Sim         | Senha armazenada de forma segura |
+| created_at | timestamp     | Sim         | Data de criação do registro      |
+| updated_at | timestamp     | Sim         | Data da última atualização       |
 
 ### Observações
 
@@ -175,29 +175,29 @@ A tabela `organization_users` deverá representar o vínculo entre usuários e o
 
 Essa tabela é responsável por armazenar o perfil de acesso do usuário dentro da organização, bem como o status desse vínculo.
 
-| Campo | Tipo sugerido | Obrigatório | Descrição |
-| ----- | ------------- | ----------- | --------- |
-| id | bigint | Sim | Identificador único do vínculo |
-| organization_id | bigint | Sim | Organização à qual o usuário está vinculado |
-| user_id | bigint | Sim | Usuário vinculado à organização |
-| role | varchar | Sim | Perfil do usuário na organização |
-| status | varchar | Sim | Status do vínculo, como `active` ou `inactive` |
-| created_at | timestamp | Sim | Data de criação do vínculo |
-| updated_at | timestamp | Sim | Data da última atualização |
+| Campo           | Tipo sugerido | Obrigatório | Descrição                                      |
+| --------------- | ------------- | ----------- | ---------------------------------------------- |
+| id              | bigint        | Sim         | Identificador único do vínculo                 |
+| organization_id | bigint        | Sim         | Organização à qual o usuário está vinculado    |
+| user_id         | bigint        | Sim         | Usuário vinculado à organização                |
+| role            | varchar       | Sim         | Perfil do usuário na organização               |
+| status          | varchar       | Sim         | Status do vínculo, como `active` ou `inactive` |
+| created_at      | timestamp     | Sim         | Data de criação do vínculo                     |
+| updated_at      | timestamp     | Sim         | Data da última atualização                     |
 
 ### Valores iniciais para `role`
 
-| Valor | Descrição |
-| ----- | --------- |
-| admin | Administrador |
+| Valor              | Descrição        |
+| ------------------ | ---------------- |
+| admin              | Administrador    |
 | commercial_manager | Gestor Comercial |
-| salesperson | Vendedor / SDR |
+| salesperson        | Vendedor / SDR   |
 
 ### Valores iniciais para `status`
 
-| Valor | Descrição |
-| ----- | --------- |
-| active | Usuário ativo na organização |
+| Valor    | Descrição                      |
+| -------- | ------------------------------ |
+| active   | Usuário ativo na organização   |
 | inactive | Usuário inativo na organização |
 
 ### Observações
@@ -220,28 +220,28 @@ A tabela `lead_statuses` deverá armazenar os status disponíveis para o pipelin
 
 No MVP, os status serão padronizados, mas a existência dessa tabela permite melhor organização da modelagem e facilita uma futura evolução para configuração de pipeline.
 
-| Campo | Tipo sugerido | Obrigatório | Descrição |
-| ----- | ------------- | ----------- | --------- |
-| id | bigint | Sim | Identificador único do status |
-| organization_id | bigint | Sim | Organização à qual o status pertence |
-| name | varchar | Sim | Nome exibido do status |
-| key | varchar | Sim | Identificador interno do status |
-| position | integer | Sim | Ordem de exibição no Kanban |
-| is_default | boolean | Sim | Indica se é um status padrão do sistema |
-| created_at | timestamp | Sim | Data de criação do registro |
-| updated_at | timestamp | Sim | Data da última atualização |
+| Campo           | Tipo sugerido | Obrigatório | Descrição                               |
+| --------------- | ------------- | ----------- | --------------------------------------- |
+| id              | bigint        | Sim         | Identificador único do status           |
+| organization_id | bigint        | Sim         | Organização à qual o status pertence    |
+| name            | varchar       | Sim         | Nome exibido do status                  |
+| key             | varchar       | Sim         | Identificador interno do status         |
+| position        | integer       | Sim         | Ordem de exibição no Kanban             |
+| is_default      | boolean       | Sim         | Indica se é um status padrão do sistema |
+| created_at      | timestamp     | Sim         | Data de criação do registro             |
+| updated_at      | timestamp     | Sim         | Data da última atualização              |
 
 ### Status iniciais
 
-| Nome | Chave sugerida | Ordem |
-| ---- | -------------- | ----- |
-| Novo | new | 1 |
-| Em contato | contacted | 2 |
-| Qualificado | qualified | 3 |
-| Proposta enviada | proposal_sent | 4 |
-| Negociação | negotiation | 5 |
-| Ganho | won | 6 |
-| Perdido | lost | 7 |
+| Nome             | Chave sugerida | Ordem |
+| ---------------- | -------------- | ----- |
+| Novo             | new            | 1     |
+| Em contato       | contacted      | 2     |
+| Qualificado      | qualified      | 3     |
+| Proposta enviada | proposal_sent  | 4     |
+| Negociação       | negotiation    | 5     |
+| Ganho            | won            | 6     |
+| Perdido          | lost           | 7     |
 
 ### Observações
 
@@ -261,28 +261,28 @@ A tabela `lead_sources` deverá armazenar as origens disponíveis para cadastro 
 
 No MVP, as origens serão padronizadas, mas a tabela facilita filtros, indicadores e evolução futura.
 
-| Campo | Tipo sugerido | Obrigatório | Descrição |
-| ----- | ------------- | ----------- | --------- |
-| id | bigint | Sim | Identificador único da origem |
-| organization_id | bigint | Sim | Organização à qual a origem pertence |
-| name | varchar | Sim | Nome exibido da origem |
-| key | varchar | Sim | Identificador interno da origem |
-| is_default | boolean | Sim | Indica se é uma origem padrão do sistema |
-| created_at | timestamp | Sim | Data de criação do registro |
-| updated_at | timestamp | Sim | Data da última atualização |
+| Campo           | Tipo sugerido | Obrigatório | Descrição                                |
+| --------------- | ------------- | ----------- | ---------------------------------------- |
+| id              | bigint        | Sim         | Identificador único da origem            |
+| organization_id | bigint        | Sim         | Organização à qual a origem pertence     |
+| name            | varchar       | Sim         | Nome exibido da origem                   |
+| key             | varchar       | Sim         | Identificador interno da origem          |
+| is_default      | boolean       | Sim         | Indica se é uma origem padrão do sistema |
+| created_at      | timestamp     | Sim         | Data de criação do registro              |
+| updated_at      | timestamp     | Sim         | Data da última atualização               |
 
 ### Origens iniciais
 
-| Nome | Chave sugerida |
-| ---- | -------------- |
-| Site | site |
-| Instagram | instagram |
-| LinkedIn | linkedin |
-| Indicação | referral |
-| Google Ads | google_ads |
-| Eventos | events |
-| WhatsApp | whatsapp |
-| Outro | other |
+| Nome       | Chave sugerida |
+| ---------- | -------------- |
+| Site       | site           |
+| Instagram  | instagram      |
+| LinkedIn   | linkedin       |
+| Indicação  | referral       |
+| Google Ads | google_ads     |
+| Eventos    | events         |
+| WhatsApp   | whatsapp       |
+| Outro      | other          |
 
 ### Observações
 
@@ -300,34 +300,34 @@ A tabela `leads` deverá armazenar os dados principais das oportunidades comerci
 
 Cada lead deverá estar vinculado a uma organização, possuir status, possuir origem e poderá ter um responsável pelo atendimento.
 
-| Campo | Tipo sugerido | Obrigatório | Descrição |
-| ----- | ------------- | ----------- | --------- |
-| id | bigint | Sim | Identificador único do lead |
-| organization_id | bigint | Sim | Organização à qual o lead pertence |
-| lead_status_id | bigint | Sim | Status atual do lead no pipeline |
-| lead_source_id | bigint | Sim | Origem do contato |
-| responsible_organization_user_id | bigint | Não | Vínculo organizacional responsável pelo atendimento |
-| created_by_organization_user_id | bigint | Não | Vínculo organizacional que cadastrou o lead, quando aplicável |
-| name | varchar | Sim | Nome do lead |
-| email | varchar | Não | E-mail do lead |
-| phone | varchar | Não | Telefone do lead |
-| company | varchar | Não | Empresa do lead |
-| interest | text | Não | Interesse demonstrado pelo lead |
-| notes | text | Não | Observações gerais sobre o lead |
-| capture_channel | varchar | Sim | Canal de cadastro do lead, como `internal` ou `public_form` |
-| ip_address | varchar | Não | Endereço IP de origem quando o lead for criado pelo formulário público, se tecnicamente adequado |
-| user_agent | text | Não | Identificação básica do navegador/dispositivo quando o lead for criado pelo formulário público, se útil para diagnóstico ou proteção contra abuso |
-| archived_at | timestamp | Não | Data de arquivamento do lead |
-| archived_by_organization_user_id | bigint | Não | Vínculo organizacional que arquivou o lead |
-| archived_reason | text | Não | Motivo do arquivamento, quando informado |
-| created_at | timestamp | Sim | Data de criação do registro |
-| updated_at | timestamp | Sim | Data da última atualização |
+| Campo                            | Tipo sugerido | Obrigatório | Descrição                                                                                                                                         |
+| -------------------------------- | ------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| id                               | bigint        | Sim         | Identificador único do lead                                                                                                                       |
+| organization_id                  | bigint        | Sim         | Organização à qual o lead pertence                                                                                                                |
+| lead_status_id                   | bigint        | Sim         | Status atual do lead no pipeline                                                                                                                  |
+| lead_source_id                   | bigint        | Sim         | Origem do contato                                                                                                                                 |
+| responsible_organization_user_id | bigint        | Não         | Vínculo organizacional responsável pelo atendimento                                                                                               |
+| created_by_organization_user_id  | bigint        | Não         | Vínculo organizacional que cadastrou o lead, quando aplicável                                                                                     |
+| name                             | varchar       | Sim         | Nome do lead                                                                                                                                      |
+| email                            | varchar       | Não         | E-mail do lead                                                                                                                                    |
+| phone                            | varchar       | Não         | Telefone do lead                                                                                                                                  |
+| company                          | varchar       | Não         | Empresa do lead                                                                                                                                   |
+| interest                         | text          | Não         | Interesse demonstrado pelo lead                                                                                                                   |
+| notes                            | text          | Não         | Observações gerais sobre o lead                                                                                                                   |
+| capture_channel                  | varchar       | Sim         | Canal de cadastro do lead, como `internal` ou `public_form`                                                                                       |
+| ip_address                       | varchar       | Não         | Endereço IP de origem quando o lead for criado pelo formulário público, se tecnicamente adequado                                                  |
+| user_agent                       | text          | Não         | Identificação básica do navegador/dispositivo quando o lead for criado pelo formulário público, se útil para diagnóstico ou proteção contra abuso |
+| archived_at                      | timestamp     | Não         | Data de arquivamento do lead                                                                                                                      |
+| archived_by_organization_user_id | bigint        | Não         | Vínculo organizacional que arquivou o lead                                                                                                        |
+| archived_reason                  | text          | Não         | Motivo do arquivamento, quando informado                                                                                                          |
+| created_at                       | timestamp     | Sim         | Data de criação do registro                                                                                                                       |
+| updated_at                       | timestamp     | Sim         | Data da última atualização                                                                                                                        |
 
 ### Valores iniciais para `capture_channel`
 
-| Valor | Descrição |
-| ----- | --------- |
-| internal | Lead criado pela área interna do CRM |
+| Valor       | Descrição                                      |
+| ----------- | ---------------------------------------------- |
+| internal    | Lead criado pela área interna do CRM           |
 | public_form | Lead criado pelo formulário público de captura |
 
 ### Observações
@@ -364,39 +364,39 @@ A tabela `lead_interactions` deverá armazenar o histórico do lead, incluindo i
 
 Essa tabela será essencial para preservar o contexto do atendimento comercial e garantir rastreabilidade das ações importantes.
 
-| Campo | Tipo sugerido | Obrigatório | Descrição |
-| ----- | ------------- | ----------- | --------- |
-| id | bigint | Sim | Identificador único da interação ou evento |
-| organization_id | bigint | Sim | Organização à qual o registro pertence |
-| lead_id | bigint | Sim | Lead relacionado ao registro |
-| organization_user_id | bigint | Não | Vínculo organizacional responsável pelo registro ou ação |
-| type | varchar | Sim | Tipo da interação ou evento |
-| description | text | Sim | Descrição do registro |
-| metadata | json | Não | Dados adicionais sobre o evento ou alteração |
-| created_at | timestamp | Sim | Data de criação do registro |
-| updated_at | timestamp | Sim | Data da última atualização |
+| Campo                | Tipo sugerido | Obrigatório | Descrição                                                |
+| -------------------- | ------------- | ----------- | -------------------------------------------------------- |
+| id                   | bigint        | Sim         | Identificador único da interação ou evento               |
+| organization_id      | bigint        | Sim         | Organização à qual o registro pertence                   |
+| lead_id              | bigint        | Sim         | Lead relacionado ao registro                             |
+| organization_user_id | bigint        | Não         | Vínculo organizacional responsável pelo registro ou ação |
+| type                 | varchar       | Sim         | Tipo da interação ou evento                              |
+| description          | text          | Sim         | Descrição do registro                                    |
+| metadata             | json          | Não         | Dados adicionais sobre o evento ou alteração             |
+| created_at           | timestamp     | Sim         | Data de criação do registro                              |
+| updated_at           | timestamp     | Sim         | Data da última atualização                               |
 
 ### Tipos manuais iniciais
 
-| Valor sugerido | Descrição |
-| -------------- | --------- |
-| call | Ligação |
-| whatsapp | WhatsApp |
-| email | E-mail |
-| meeting | Reunião |
-| internal_note | Observação interna |
-| proposal_sent | Envio de proposta |
-| other | Outro |
+| Valor sugerido | Descrição          |
+| -------------- | ------------------ |
+| call           | Ligação            |
+| whatsapp       | WhatsApp           |
+| email          | E-mail             |
+| meeting        | Reunião            |
+| internal_note  | Observação interna |
+| proposal_sent  | Envio de proposta  |
+| other          | Outro              |
 
 ### Eventos automáticos iniciais
 
-| Valor sugerido | Descrição |
-| -------------- | --------- |
-| status_changed | Mudança de status |
-| responsible_changed | Troca de responsável |
-| lead_archived | Arquivamento do lead |
-| lead_reactivated | Reativação do lead |
-| task_created | Criação de tarefa relevante, quando aplicável |
+| Valor sugerido      | Descrição                                     |
+| ------------------- | --------------------------------------------- |
+| status_changed      | Mudança de status                             |
+| responsible_changed | Troca de responsável                          |
+| lead_archived       | Arquivamento do lead                          |
+| lead_reactivated    | Reativação do lead                            |
+| task_created        | Criação de tarefa relevante, quando aplicável |
 
 ### Observações
 
@@ -420,27 +420,27 @@ A tabela `tasks` deverá armazenar as tarefas de acompanhamento relacionadas aos
 
 As tarefas servirão para organizar follow-ups, retornos, reuniões, envio de propostas e outras ações comerciais necessárias durante o acompanhamento da oportunidade.
 
-| Campo | Tipo sugerido | Obrigatório | Descrição |
-| ----- | ------------- | ----------- | --------- |
-| id | bigint | Sim | Identificador único da tarefa |
-| organization_id | bigint | Sim | Organização à qual a tarefa pertence |
-| lead_id | bigint | Sim | Lead relacionado à tarefa |
-| responsible_organization_user_id | bigint | Sim | Vínculo organizacional responsável pela execução da tarefa |
-| created_by_organization_user_id | bigint | Não | Vínculo organizacional que criou a tarefa |
-| title | varchar | Sim | Título da tarefa |
-| description | text | Não | Descrição ou orientação da tarefa |
-| due_date | date ou datetime | Sim | Data de vencimento da tarefa |
-| status | varchar | Sim | Status atual da tarefa |
-| completed_at | timestamp | Não | Data de conclusão da tarefa |
-| completed_by_organization_user_id | bigint | Não | Vínculo organizacional que concluiu a tarefa |
-| created_at | timestamp | Sim | Data de criação do registro |
-| updated_at | timestamp | Sim | Data da última atualização |
+| Campo                             | Tipo sugerido    | Obrigatório | Descrição                                                  |
+| --------------------------------- | ---------------- | ----------- | ---------------------------------------------------------- |
+| id                                | bigint           | Sim         | Identificador único da tarefa                              |
+| organization_id                   | bigint           | Sim         | Organização à qual a tarefa pertence                       |
+| lead_id                           | bigint           | Sim         | Lead relacionado à tarefa                                  |
+| responsible_organization_user_id  | bigint           | Sim         | Vínculo organizacional responsável pela execução da tarefa |
+| created_by_organization_user_id   | bigint           | Não         | Vínculo organizacional que criou a tarefa                  |
+| title                             | varchar          | Sim         | Título da tarefa                                           |
+| description                       | text             | Não         | Descrição ou orientação da tarefa                          |
+| due_date                          | date ou datetime | Sim         | Data de vencimento da tarefa                               |
+| status                            | varchar          | Sim         | Status atual da tarefa                                     |
+| completed_at                      | timestamp        | Não         | Data de conclusão da tarefa                                |
+| completed_by_organization_user_id | bigint           | Não         | Vínculo organizacional que concluiu a tarefa               |
+| created_at                        | timestamp        | Sim         | Data de criação do registro                                |
+| updated_at                        | timestamp        | Sim         | Data da última atualização                                 |
 
 ### Status iniciais de tarefa
 
-| Valor | Descrição |
-| ----- | --------- |
-| pending | Pendente |
+| Valor     | Descrição |
+| --------- | --------- |
+| pending   | Pendente  |
 | completed | Concluída |
 
 ### Observações
@@ -469,24 +469,24 @@ A tabela `organization_settings` deverá armazenar configurações básicas da o
 
 No MVP, as configurações deverão ser simples e limitadas a necessidades operacionais iniciais.
 
-| Campo | Tipo sugerido | Obrigatório | Descrição |
-| ----- | ------------- | ----------- | --------- |
-| id | bigint | Sim | Identificador único da configuração |
-| organization_id | bigint | Sim | Organização à qual a configuração pertence |
-| key | varchar | Sim | Chave da configuração |
-| value | text ou json | Não | Valor da configuração |
-| created_at | timestamp | Sim | Data de criação do registro |
-| updated_at | timestamp | Sim | Data da última atualização |
+| Campo           | Tipo sugerido | Obrigatório | Descrição                                  |
+| --------------- | ------------- | ----------- | ------------------------------------------ |
+| id              | bigint        | Sim         | Identificador único da configuração        |
+| organization_id | bigint        | Sim         | Organização à qual a configuração pertence |
+| key             | varchar       | Sim         | Chave da configuração                      |
+| value           | text ou json  | Não         | Valor da configuração                      |
+| created_at      | timestamp     | Sim         | Data de criação do registro                |
+| updated_at      | timestamp     | Sim         | Data da última atualização                 |
 
 ### Exemplos de configurações possíveis
 
-| Chave | Finalidade |
-| ----- | ---------- |
-| public_form_enabled | Indicar se o formulário público está ativo |
-| default_public_lead_status_id | Status padrão para leads vindos do formulário público |
-| default_public_lead_source_id | Origem padrão para leads vindos do formulário público |
-| public_form_privacy_notice | Texto simples sobre uso dos dados enviados pelo formulário público |
-| public_form_spam_protection_enabled | Indicar se a proteção básica contra abuso está ativa |
+| Chave                               | Finalidade                                                         |
+| ----------------------------------- | ------------------------------------------------------------------ |
+| public_form_enabled                 | Indicar se o formulário público está ativo                         |
+| default_public_lead_status_id       | Status padrão para leads vindos do formulário público              |
+| default_public_lead_source_id       | Origem padrão para leads vindos do formulário público              |
+| public_form_privacy_notice          | Texto simples sobre uso dos dados enviados pelo formulário público |
+| public_form_spam_protection_enabled | Indicar se a proteção básica contra abuso está ativa               |
 
 ### Observações
 
@@ -680,76 +680,76 @@ Para apoiar desempenho adequado no MVP, especialmente em listagens, filtros, Kan
 
 ## 10.1 Índices em `users`
 
-| Campo | Finalidade |
-| ----- | ---------- |
+| Campo | Finalidade                             |
+| ----- | -------------------------------------- |
 | email | Login e identificação única do usuário |
 
 ## 10.2 Índices em `organization_users`
 
-| Campo | Finalidade |
-| ----- | ---------- |
-| organization_id | Listagem de usuários da organização |
-| user_id | Identificação dos vínculos do usuário |
-| organization_id, user_id | Evitar vínculo duplicado |
-| organization_id, role | Filtros por perfil na organização |
-| organization_id, status | Filtros por status do vínculo |
+| Campo                    | Finalidade                            |
+| ------------------------ | ------------------------------------- |
+| organization_id          | Listagem de usuários da organização   |
+| user_id                  | Identificação dos vínculos do usuário |
+| organization_id, user_id | Evitar vínculo duplicado              |
+| organization_id, role    | Filtros por perfil na organização     |
+| organization_id, status  | Filtros por status do vínculo         |
 
 ## 10.3 Índices em `lead_statuses`
 
-| Campo | Finalidade |
-| ----- | ---------- |
-| organization_id | Listagem de status da organização |
-| organization_id, key | Identificação interna do status na organização |
-| organization_id, position | Ordenação das colunas no Kanban |
+| Campo                     | Finalidade                                     |
+| ------------------------- | ---------------------------------------------- |
+| organization_id           | Listagem de status da organização              |
+| organization_id, key      | Identificação interna do status na organização |
+| organization_id, position | Ordenação das colunas no Kanban                |
 
 ## 10.4 Índices em `lead_sources`
 
-| Campo | Finalidade |
-| ----- | ---------- |
-| organization_id | Listagem de origens da organização |
+| Campo                | Finalidade                                     |
+| -------------------- | ---------------------------------------------- |
+| organization_id      | Listagem de origens da organização             |
 | organization_id, key | Identificação interna da origem na organização |
 
 ## 10.5 Índices em `leads`
 
-| Campo | Finalidade |
-| ----- | ---------- |
-| organization_id | Restrição por organização |
-| lead_status_id | Filtro e Kanban por status |
-| lead_source_id | Filtro e dashboard por origem |
-| responsible_organization_user_id | Filtro por responsável e dashboard individual |
-| created_by_organization_user_id | Identificação de leads cadastrados pelo usuário na organização |
-| capture_channel | Separação entre leads internos e leads vindos do formulário público |
-| archived_at | Separação entre leads ativos e arquivados |
-| created_at | Indicadores por período |
-| organization_id, lead_status_id | Consulta do Kanban por organização e status |
-| organization_id, responsible_organization_user_id | Carteira individual de vendedor |
-| organization_id, archived_at | Listagem padrão de leads ativos |
-| organization_id, email | Busca e identificação de possíveis duplicidades por e-mail dentro da organização |
-| organization_id, phone | Busca e identificação de possíveis duplicidades por telefone dentro da organização |
-| organization_id, capture_channel | Consulta de leads por origem de cadastro, especialmente formulário público |
+| Campo                                             | Finalidade                                                                         |
+| ------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| organization_id                                   | Restrição por organização                                                          |
+| lead_status_id                                    | Filtro e Kanban por status                                                         |
+| lead_source_id                                    | Filtro e dashboard por origem                                                      |
+| responsible_organization_user_id                  | Filtro por responsável e dashboard individual                                      |
+| created_by_organization_user_id                   | Identificação de leads cadastrados pelo usuário na organização                     |
+| capture_channel                                   | Separação entre leads internos e leads vindos do formulário público                |
+| archived_at                                       | Separação entre leads ativos e arquivados                                          |
+| created_at                                        | Indicadores por período                                                            |
+| organization_id, lead_status_id                   | Consulta do Kanban por organização e status                                        |
+| organization_id, responsible_organization_user_id | Carteira individual de vendedor                                                    |
+| organization_id, archived_at                      | Listagem padrão de leads ativos                                                    |
+| organization_id, email                            | Busca e identificação de possíveis duplicidades por e-mail dentro da organização   |
+| organization_id, phone                            | Busca e identificação de possíveis duplicidades por telefone dentro da organização |
+| organization_id, capture_channel                  | Consulta de leads por origem de cadastro, especialmente formulário público         |
 
 ## 10.6 Índices em `lead_interactions`
 
-| Campo | Finalidade |
-| ----- | ---------- |
-| organization_id | Restrição por organização |
-| lead_id | Listagem do histórico do lead |
-| organization_user_id | Rastreabilidade por vínculo organizacional |
-| type | Filtro ou leitura por tipo de interação/evento |
-| created_at | Ordenação cronológica do histórico |
-| lead_id, created_at | Exibição do histórico do lead em ordem cronológica |
+| Campo                | Finalidade                                         |
+| -------------------- | -------------------------------------------------- |
+| organization_id      | Restrição por organização                          |
+| lead_id              | Listagem do histórico do lead                      |
+| organization_user_id | Rastreabilidade por vínculo organizacional         |
+| type                 | Filtro ou leitura por tipo de interação/evento     |
+| created_at           | Ordenação cronológica do histórico                 |
+| lead_id, created_at  | Exibição do histórico do lead em ordem cronológica |
 
 ## 10.7 Índices em `tasks`
 
-| Campo | Finalidade |
-| ----- | ---------- |
-| organization_id | Restrição por organização |
-| lead_id | Listagem de tarefas por lead |
-| responsible_organization_user_id | Tarefas do vínculo organizacional responsável |
-| status | Filtro por pendente ou concluída |
-| due_date | Identificação de tarefas atrasadas |
-| organization_id, responsible_organization_user_id, status | Listagem de tarefas por responsável e status |
-| organization_id, status, due_date | Indicador de tarefas atrasadas |
+| Campo                                                     | Finalidade                                    |
+| --------------------------------------------------------- | --------------------------------------------- |
+| organization_id                                           | Restrição por organização                     |
+| lead_id                                                   | Listagem de tarefas por lead                  |
+| responsible_organization_user_id                          | Tarefas do vínculo organizacional responsável |
+| status                                                    | Filtro por pendente ou concluída              |
+| due_date                                                  | Identificação de tarefas atrasadas            |
+| organization_id, responsible_organization_user_id, status | Listagem de tarefas por responsável e status  |
+| organization_id, status, due_date                         | Indicador de tarefas atrasadas                |
 
 ## 11. Regras para Arquivamento e Preservação de Dados
 
@@ -843,17 +843,17 @@ A modelagem deverá apoiar os indicadores básicos previstos para o dashboard do
 
 Indicadores esperados e origem dos dados:
 
-| Indicador | Base de cálculo sugerida |
-| --------- | ------------------------ |
-| Total de leads cadastrados | Contagem em `leads` por organização |
-| Leads novos no mês | Contagem em `leads` por `created_at` e status Novo, conforme regra de dashboard |
-| Leads ganhos | Contagem em `leads` com status Ganho |
-| Leads perdidos | Contagem em `leads` com status Perdido |
-| Taxa de conversão | Proporção de leads ganhos dentro do escopo considerado |
-| Tarefas atrasadas | Contagem em `tasks` com status Pendente e `due_date` vencida |
-| Leads por status | Agrupamento de `leads` por `lead_status_id` |
-| Leads por origem | Agrupamento de `leads` por `lead_source_id` |
-| Evolução de oportunidades | Agrupamento de leads por data de criação ou mudanças de status registradas no histórico |
+| Indicador                  | Base de cálculo sugerida                                                                |
+| -------------------------- | --------------------------------------------------------------------------------------- |
+| Total de leads cadastrados | Contagem em `leads` por organização                                                     |
+| Leads novos no mês         | Contagem em `leads` por `created_at` e status Novo, conforme regra de dashboard         |
+| Leads ganhos               | Contagem em `leads` com status Ganho                                                    |
+| Leads perdidos             | Contagem em `leads` com status Perdido                                                  |
+| Taxa de conversão          | Proporção de leads ganhos dentro do escopo considerado                                  |
+| Tarefas atrasadas          | Contagem em `tasks` com status Pendente e `due_date` vencida                            |
+| Leads por status           | Agrupamento de `leads` por `lead_status_id`                                             |
+| Leads por origem           | Agrupamento de `leads` por `lead_source_id`                                             |
+| Evolução de oportunidades  | Agrupamento de leads por data de criação ou mudanças de status registradas no histórico |
 
 Os indicadores deverão respeitar:
 
@@ -1016,3 +1016,7 @@ A modelagem também evita associar responsabilidades operacionais apenas ao usu�
 As tabelas, campos e relacionamentos descritos neste documento deverão orientar a criação das migrations, models, endpoints, telas, testes e demais decisões técnicas do desenvolvimento.
 
 A modelagem poderá ser refinada durante a etapa de arquitetura ou implementação, desde que mantenha os comportamentos essenciais definidos neste documento e preserve as regras principais do MVP.
+
+## 19. Diagrama
+
+![alt text](LeadFlow.drawio.png)
