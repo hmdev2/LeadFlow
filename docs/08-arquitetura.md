@@ -142,16 +142,16 @@ A camada de serviços de aplicação será responsável por orquestrar os princi
 
 Exemplos de serviços esperados:
 
-| Serviço | Responsabilidade |
-| ------- | ---------------- |
-| `LeadService` | Cadastro, edição, arquivamento, reativação e atribuição de leads |
-| `PipelineService` | Movimentação de leads no Kanban e atualização de status |
-| `LeadInteractionService` | Registro de interações manuais e eventos automáticos |
-| `TaskService` | Criação, edição, conclusão e consulta de tarefas |
-| `DashboardService` | Cálculo dos indicadores básicos |
-| `OrganizationUserService` | Gestão de usuários vinculados à organização |
-| `PublicLeadCaptureService` | Tratamento do formulário público de captura |
-| `OrganizationContextService` | Resolução da organização atual no MVP e em evolução futura |
+| Serviço                      | Responsabilidade                                                 |
+| ---------------------------- | ---------------------------------------------------------------- |
+| `LeadService`                | Cadastro, edição, arquivamento, reativação e atribuição de leads |
+| `PipelineService`            | Movimentação de leads no Kanban e atualização de status          |
+| `LeadInteractionService`     | Registro de interações manuais e eventos automáticos             |
+| `TaskService`                | Criação, edição, conclusão e consulta de tarefas                 |
+| `DashboardService`           | Cálculo dos indicadores básicos                                  |
+| `OrganizationUserService`    | Gestão de usuários vinculados à organização                      |
+| `PublicLeadCaptureService`   | Tratamento do formulário público de captura                      |
+| `OrganizationContextService` | Resolução da organização atual no MVP e em evolução futura       |
 
 A camada de serviços deverá reduzir duplicação de lógica e manter os controllers mais simples.
 
@@ -217,20 +217,20 @@ Sempre que a tecnologia utilizada possuir ORM ou models, essa camada deverá rep
 
 A aplicação deverá ser organizada em módulos funcionais. Essa divisão não significa aplicações separadas, mas sim separação lógica dentro do monólito modular.
 
-| Módulo | Responsabilidade principal |
-| ------ | -------------------------- |
-| Autenticação | Login, logout, sessão e proteção de rotas internas |
-| Organizações | Organização principal, contexto atual e configurações básicas |
-| Usuários e Permissões | Usuários, vínculos, perfis e status dentro da organização |
-| Leads | Cadastro, edição, listagem, filtros, busca, responsável e arquivamento |
-| Pipeline Kanban | Visualização por status e movimentação dos leads entre etapas |
-| Histórico | Interações manuais e eventos automáticos do lead |
-| Tarefas | Criação, edição, conclusão, pendências e atrasos |
-| Dashboard | Indicadores gerais e individuais do MVP |
-| Formulário Público | Captura pública de leads com origem Site e status Novo |
-| Configurações | Dados básicos e configurações simples da organização |
-| Logs e Diagnóstico | Registro de erros técnicos e apoio à manutenção |
-| Backup e Preservação | Rotina ou previsão básica de backup dos dados principais |
+| Módulo                | Responsabilidade principal                                             |
+| --------------------- | ---------------------------------------------------------------------- |
+| Autenticação          | Login, logout, sessão e proteção de rotas internas                     |
+| Organizações          | Organização principal, contexto atual e configurações básicas          |
+| Usuários e Permissões | Usuários, vínculos, perfis e status dentro da organização              |
+| Leads                 | Cadastro, edição, listagem, filtros, busca, responsável e arquivamento |
+| Pipeline Kanban       | Visualização por status e movimentação dos leads entre etapas          |
+| Histórico             | Interações manuais e eventos automáticos do lead                       |
+| Tarefas               | Criação, edição, conclusão, pendências e atrasos                       |
+| Dashboard             | Indicadores gerais e individuais do MVP                                |
+| Formulário Público    | Captura pública de leads com origem Site e status Novo                 |
+| Configurações         | Dados básicos e configurações simples da organização                   |
+| Logs e Diagnóstico    | Registro de erros técnicos e apoio à manutenção                        |
+| Backup e Preservação  | Rotina ou previsão básica de backup dos dados principais               |
 
 ## 9. Arquitetura de Autenticação
 
@@ -240,21 +240,7 @@ O usuário deverá acessar o sistema utilizando e-mail e senha. Após autentica�
 
 Fluxo esperado:
 
-```text
-Usuário informa e-mail e senha
-        |
-        v
-Sistema valida credenciais
-        |
-        v
-Sistema verifica vínculo ativo com a organização atual
-        |
-        v
-Sistema identifica perfil do usuário
-        |
-        v
-Usuário acessa a área interna conforme suas permissões
-```
+![Diagrama BPMN do processo de login e acesso à área interna do LeadFlow. O usuário interno acessa a tela de login e informa e-mail e senha. O sistema valida as credenciais; se forem inválidas, o usuário retorna ao preenchimento dos dados. Se forem válidas, o sistema verifica o vínculo ativo com a organização. Caso não exista vínculo ativo, o acesso é bloqueado. Caso exista, o sistema identifica o perfil do usuário — Administrador, Gestor Comercial ou Vendedor/SDR — e libera o acesso à área interna conforme suas permissões.](./modelagem_processos/login.png)
 
 Senhas deverão ser armazenadas de forma segura, utilizando práticas adequadas de proteção, e nunca deverão ser armazenadas ou exibidas em texto puro.
 
@@ -271,24 +257,24 @@ A validação no backend é obrigatória, pois a interface não deve ser conside
 
 ## 10.1 Perfis do MVP
 
-| Perfil | Acesso arquitetural esperado |
-| ------ | ---------------------------- |
-| Administrador | Acesso amplo à organização, usuários, permissões, leads, tarefas, dashboard e configurações |
+| Perfil           | Acesso arquitetural esperado                                                                                  |
+| ---------------- | ------------------------------------------------------------------------------------------------------------- |
+| Administrador    | Acesso amplo à organização, usuários, permissões, leads, tarefas, dashboard e configurações                   |
 | Gestor Comercial | Acesso à operação comercial, leads da equipe, tarefas da equipe, dashboard geral e atribuição de responsáveis |
-| Vendedor / SDR | Acesso restrito aos leads atribuídos a ele ou cadastrados por ele próprio |
+| Vendedor / SDR   | Acesso restrito aos leads atribuídos a ele ou cadastrados por ele próprio                                     |
 
 ## 10.2 Escopo de Acesso por Dado
 
 A arquitetura deverá aplicar escopo de acesso nos principais dados operacionais.
 
-| Dado | Regra arquitetural |
-| ---- | ------------------ |
-| Leads | Sempre filtrados por organização e perfil do usuário |
-| Tarefas | Sempre filtradas por organização, lead e responsável conforme permissão |
-| Interações | Acessíveis apenas quando o usuário puder acessar o lead relacionado |
-| Dashboard | Calculado conforme organização, perfil e escopo do usuário |
-| Configurações | Acessíveis apenas pelo Administrador |
-| Usuários | Gerenciados apenas pelo Administrador |
+| Dado          | Regra arquitetural                                                      |
+| ------------- | ----------------------------------------------------------------------- |
+| Leads         | Sempre filtrados por organização e perfil do usuário                    |
+| Tarefas       | Sempre filtradas por organização, lead e responsável conforme permissão |
+| Interações    | Acessíveis apenas quando o usuário puder acessar o lead relacionado     |
+| Dashboard     | Calculado conforme organização, perfil e escopo do usuário              |
+| Configurações | Acessíveis apenas pelo Administrador                                    |
+| Usuários      | Gerenciados apenas pelo Administrador                                   |
 
 ## 11. Organização Atual e Preparação para Multi-tenant
 
@@ -315,92 +301,23 @@ Essa decisão evita espalhar regras fixas de organização única por todo o sis
 
 ## 12.1 Fluxo de Cadastro Interno de Lead
 
-```text
-Usuário autenticado acessa formulário interno
-        |
-        v
-Sistema valida permissão de criação
-        |
-        v
-Sistema valida dados do lead
-        |
-        v
-Sistema define organização atual
-        |
-        v
-Sistema define status e origem
-        |
-        v
-Sistema define responsável conforme perfil e regra aplicável
-        |
-        v
-Lead é salvo no banco
-        |
-        v
-Lead aparece na listagem, Kanban e indicadores conforme permissão
-```
+![Diagrama BPMN do processo de cadastro interno de lead no LeadFlow. O Administrador, Gestor ou Vendedor acessa a criação de lead; o sistema verifica vínculo ativo com a organização atual, ajusta o formulário conforme o perfil do usuário e valida os dados obrigatórios. Em seguida, define a organização atual, verifica o perfil do cadastrante, atribui automaticamente o lead ao próprio vendedor/SDR quando aplicável ou valida o responsável informado. O sistema também verifica possível duplicidade por e-mail ou telefone, valida a origem informada e, se tudo estiver correto, salva o lead e o disponibiliza na listagem, Kanban e dashboard conforme as permissões. Em caso de vínculo inválido, dados inválidos, responsável inválido, duplicidade ou origem inválida, o sistema exibe erro ou alerta operacional.](./modelagem_processos/cadastro_interno_de_lead.png)
 
 Quando o lead for criado por Vendedor / SDR, ele deverá ser atribuído automaticamente ao próprio vendedor, salvo regra futura diferente.
 
 ## 12.2 Fluxo de Cadastro pelo Formulário Público
 
-```text
-Visitante acessa formulário público
-        |
-        v
-Sistema exibe aviso simples sobre uso dos dados para retorno comercial
-        |
-        v
-Visitante preenche os dados
-        |
-        v
-Sistema valida campos obrigatórios e proteção básica contra abuso
-        |
-        v
-Sistema cria lead na organização principal
-        |
-        v
-Lead recebe origem Site
-        |
-        v
-Lead recebe status Novo
-        |
-        v
-Lead pode iniciar sem responsável
-        |
-        v
-Sistema exibe confirmação de envio
-```
+![Fluxo de captura de lead pelo formulário público no LeadFlow. O visitante acessa o formulário, visualiza o aviso de uso dos dados, preenche nome, contato, empresa, interesse e mensagem, e envia as informações. O sistema aplica proteção contra abuso ou spam. Se houver abuso, bloqueia temporariamente o envio, exibe uma mensagem ao visitante e encerra o processo. Se não houver abuso, valida os campos obrigatórios. Caso existam erros, exibe a mensagem no formulário e permite correção. Caso os campos sejam válidos, cria o lead na organização principal, define origem como Site, status como Novo, mantém responsável vazio quando não houver regra automática, exibe confirmação ao visitante e disponibiliza o lead para Administrador e Gestor Comercial na área interna.](./modelagem_processos/captura_lead_form_publico.png)
 
 O formulário público não deverá permitir acesso a dados internos do CRM. Ele também não deverá disparar integrações externas no MVP.
 
 ## 12.3 Fluxo de Movimentação no Kanban
 
-```text
-Usuário acessa o Kanban
-        |
-        v
-Sistema lista leads permitidos por organização e perfil
-        |
-        v
-Usuário move lead para outra coluna
-        |
-        v
-Sistema valida permissão sobre o lead
-        |
-        v
-Sistema atualiza o status do lead
-        |
-        v
-Sistema registra evento automático no histórico
-        |
-        v
-Sistema atualiza a visualização do Kanban
-```
+![Fluxo de movimentação de lead no Kanban do LeadFlow. O usuário interno acessa o Kanban e o sistema valida autenticação, vínculo ativo com a organização atual e perfil do usuário. Caso o usuário não esteja autenticado ou não possua vínculo ativo, ele é redirecionado para o login e o processo é encerrado. Com acesso válido, o sistema lista os leads ativos permitidos por organização e perfil. O usuário visualiza os leads e move um lead para outra coluna. O sistema valida a permissão sobre o lead e o status ou coluna de destino. Se a permissão ou o destino forem inválidos, a ação é bloqueada, um aviso é exibido, a tentativa é registrada em log e o processo termina. Se tudo estiver válido, o sistema aplica movimentação visual temporária, atualiza o status no banco e registra evento automático no histórico. Se a atualização falhar, a movimentação visual é revertida e um aviso é exibido. Se for concluída com sucesso, o Kanban atualizado é confirmado e o processo é finalizado.](./modelagem_processos/fluxo_movimentacao_kanban.png)
 
 A movimentação de lead no Kanban deverá atualizar o status do lead e gerar registro automático no histórico.
 
-## 12.4 Fluxo de Troca de Responsável
+## 12.4 Atribuição ou troca de responsável pelo lead
 
 ```text
 Administrador ou Gestor Comercial seleciona novo responsável
@@ -544,17 +461,17 @@ A aplicação deverá utilizar banco de dados relacional para persistir os dados
 
 As principais entidades consideradas pela arquitetura são:
 
-| Entidade | Tabela esperada |
-| -------- | --------------- |
-| Organização | `organizations` |
-| Usuário | `users` |
-| Vínculo do usuário com organização | `organization_users` |
-| Lead | `leads` |
-| Status do lead | `lead_statuses` |
-| Origem do lead | `lead_sources` |
-| Histórico do lead | `lead_interactions` |
-| Tarefa | `tasks` |
-| Configurações da organização | `organization_settings` |
+| Entidade                           | Tabela esperada         |
+| ---------------------------------- | ----------------------- |
+| Organização                        | `organizations`         |
+| Usuário                            | `users`                 |
+| Vínculo do usuário com organização | `organization_users`    |
+| Lead                               | `leads`                 |
+| Status do lead                     | `lead_statuses`         |
+| Origem do lead                     | `lead_sources`          |
+| Histórico do lead                  | `lead_interactions`     |
+| Tarefa                             | `tasks`                 |
+| Configurações da organização       | `organization_settings` |
 
 A arquitetura deverá respeitar a modelagem definida no documento de banco de dados, principalmente quanto ao uso de `organization_id`, separação entre `users` e `organization_users`, uso de `organization_user_id` para responsáveis e registros operacionais, e preservação de dados por meio de arquivamento.
 
@@ -706,23 +623,23 @@ Essa estrutura é apenas uma orientação conceitual. A estrutura final poderá 
 
 ## 22. Decisões Arquiteturais do MVP
 
-| Decisão | Diretriz |
-| ------- | -------- |
-| Tipo de aplicação | Aplicação web |
-| Estilo arquitetural | Monólito modular |
-| Banco de dados | Relacional |
-| Multi-tenant | Preparação estrutural, sem operação multi-tenant no MVP |
-| Organização atual | Organização principal resolvida de forma centralizada |
-| Permissões | Baseadas no vínculo do usuário com a organização |
-| Histórico | Interações manuais e eventos automáticos centralizados |
-| Tarefas | Sempre vinculadas a leads |
-| Dashboard | Indicadores simples por consultas agregadas |
-| Formulário público | Rota pública separada, com validação e proteção básica |
-| Backup | Rotina ou previsão básica, sem painel avançado |
-| Integrações externas | Fora do MVP |
-| Microsserviços | Fora do MVP |
-| Notificações automáticas | Fora do MVP |
-| API pública para terceiros | Fora do MVP |
+| Decisão                    | Diretriz                                                |
+| -------------------------- | ------------------------------------------------------- |
+| Tipo de aplicação          | Aplicação web                                           |
+| Estilo arquitetural        | Monólito modular                                        |
+| Banco de dados             | Relacional                                              |
+| Multi-tenant               | Preparação estrutural, sem operação multi-tenant no MVP |
+| Organização atual          | Organização principal resolvida de forma centralizada   |
+| Permissões                 | Baseadas no vínculo do usuário com a organização        |
+| Histórico                  | Interações manuais e eventos automáticos centralizados  |
+| Tarefas                    | Sempre vinculadas a leads                               |
+| Dashboard                  | Indicadores simples por consultas agregadas             |
+| Formulário público         | Rota pública separada, com validação e proteção básica  |
+| Backup                     | Rotina ou previsão básica, sem painel avançado          |
+| Integrações externas       | Fora do MVP                                             |
+| Microsserviços             | Fora do MVP                                             |
+| Notificações automáticas   | Fora do MVP                                             |
+| API pública para terceiros | Fora do MVP                                             |
 
 ## 23. Itens Fora da Arquitetura do MVP
 
