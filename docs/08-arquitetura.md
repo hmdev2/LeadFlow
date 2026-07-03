@@ -319,24 +319,7 @@ A movimentação de lead no Kanban deverá atualizar o status do lead e gerar re
 
 ## 12.4 Atribuição ou troca de responsável pelo lead
 
-```text
-Administrador ou Gestor Comercial seleciona novo responsável
-        |
-        v
-Sistema valida permissão da ação
-        |
-        v
-Sistema valida se o novo responsável possui vínculo ativo na organização
-        |
-        v
-Sistema atualiza o responsável do lead
-        |
-        v
-Sistema registra evento automático no histórico
-        |
-        v
-Lead passa a aparecer no escopo do novo responsável
-```
+![Fluxo de atribuição ou troca de responsável pelo lead no LeadFlow. O Gestor Comercial ou Administrador acessa um lead ou a listagem de leads. O sistema valida autenticação, vínculo ativo com a organização atual e permissões do perfil. Se o usuário não estiver autenticado, é redirecionado para o login. Se não possuir vínculo ativo, a ação é bloqueada, um aviso é exibido, a tentativa é registrada em log e o usuário é redirecionado para a página inicial. Com acesso válido, o usuário solicita a atribuição ou troca de responsável. O sistema verifica se o lead pertence à organização atual e se o usuário tem permissão para trocar o responsável. Caso alguma validação falhe, a ação é bloqueada, um aviso é exibido, a tentativa é registrada em log e o processo termina. Caso esteja tudo válido, o sistema permite selecionar um novo responsável elegível. Após a seleção, o sistema verifica se o novo responsável possui vínculo ativo e perfil elegível na organização atual. Se for inválido, bloqueia a ação e registra a tentativa. Se for válido, atualiza o responsável do lead, registra evento automático no histórico e o Vendedor ou SDR passa a visualizar o lead caso ele tenha sido atribuído a ele.](./modelagem_processos/atribuicao_ou_troca_responsavel_lead.png)
 
 A troca de responsável não deverá apagar histórico, tarefas ou interações anteriores.
 
