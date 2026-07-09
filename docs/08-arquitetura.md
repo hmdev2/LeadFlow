@@ -325,24 +325,7 @@ A troca de responsável não deverá apagar histórico, tarefas ou interações 
 
 ## 12.5 Fluxo de Registro de Interação
 
-```text
-Usuário acessa detalhes do lead
-        |
-        v
-Sistema valida permissão sobre o lead
-        |
-        v
-Usuário registra uma interação manual
-        |
-        v
-Sistema valida tipo e descrição
-        |
-        v
-Sistema registra usuário, data, tipo e lead relacionado
-        |
-        v
-Interação aparece no histórico do lead
-```
+![![Fluxo BPMN de registro de interação no LeadFlow. O processo começa com o usuário interno acessando a página de detalhes do lead. O sistema valida a autenticação do usuário. Se o usuário não estiver autenticado, ele é redirecionado para a página de login e o processo é encerrado. Se estiver autenticado, o sistema valida se o usuário possui vínculo ativo com a organização atual. Caso não possua vínculo ativo, a ação é bloqueada, um aviso é exibido, a tentativa é registrada em log, o usuário é redirecionado para a página inicial e o processo é encerrado. Caso possua vínculo ativo, o sistema verifica se o lead pertence à organização atual. Se o lead não pertencer à organização atual, a ação é bloqueada, um aviso é exibido, a tentativa é registrada em log, o usuário é redirecionado para a página inicial e o processo é encerrado. Se o lead pertencer à organização atual, o sistema valida a permissão do usuário sobre o lead. Caso o usuário não tenha permissão, a ação é bloqueada, um aviso é exibido, a tentativa é registrada em log, o usuário é redirecionado para a página inicial e o processo é encerrado. Caso tenha permissão, o sistema libera o acesso à página de detalhes do lead. O usuário escolhe registrar uma nova interação, seleciona o tipo da interação, que pode ser ligação, WhatsApp, e-mail, reunião, observação interna, envio de proposta ou outro, e descreve a interação. O sistema valida o tipo e a descrição informados. Se o tipo ou a descrição forem inválidos, o sistema exibe erro e retorna ao formulário de interação para correção. Se os dados forem válidos, o sistema registra a interação vinculando usuário, data, tipo, descrição, lead e organização. Em seguida, a nova interação é exibida no histórico do lead e o processo é finalizado.](./fluxo_registro_interacao.png)](./modelagem_processos/fluxo_registro_interacao.png)
 
 O histórico deverá combinar interações manuais e eventos automáticos gerados pelo próprio sistema.
 
