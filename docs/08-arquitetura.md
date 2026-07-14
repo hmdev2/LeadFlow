@@ -337,21 +337,7 @@ Toda tarefa deverá estar vinculada a um lead e possuir responsável ativo na or
 
 ## 12.7 Fluxo de Conclusão de Tarefa
 
-```text
-Usuário autorizado marca tarefa como concluída
-        |
-        v
-Sistema valida permissão sobre a tarefa
-        |
-        v
-Sistema atualiza status para concluída
-        |
-        v
-Sistema registra data de conclusão e usuário responsável pela conclusão
-        |
-        v
-Tarefa deixa de ser considerada pendente ou atrasada
-```
+![Fluxo BPMN de conclusão de tarefa no LeadFlow. O processo começa com o usuário interno acessando uma tarefa pendente. O sistema valida a autenticação do usuário. Se o usuário não estiver autenticado, ele é redirecionado para a página de login e o processo é encerrado. Se estiver autenticado, o sistema valida se o usuário possui vínculo ativo com a organização atual. Caso não possua vínculo ativo, a ação é bloqueada, um aviso é exibido, a tentativa é registrada em log, o usuário é redirecionado para a página inicial e o processo é encerrado. Caso possua vínculo ativo, o sistema verifica se a tarefa pertence à organização atual. Se a tarefa não pertencer à organização atual, a ação é bloqueada, um aviso é exibido, a tentativa é registrada em log, o usuário é redirecionado para a página inicial e o processo é encerrado. Se a tarefa pertencer à organização atual, o sistema valida a permissão do usuário sobre a tarefa e sobre o lead relacionado. Caso o usuário não tenha permissão sobre a tarefa, a ação é bloqueada, um aviso é exibido, a tentativa é registrada em log, o usuário é redirecionado para a página inicial e o processo é encerrado. Caso tenha permissão, o sistema permite o acesso. O usuário marca a tarefa como concluída. O sistema verifica se a tarefa ainda está pendente. Se a tarefa não estiver pendente, o sistema bloqueia uma nova conclusão, exibe um aviso, atualiza a visualização e finaliza o processo. Se a tarefa estiver pendente, o sistema atualiza o status da tarefa para concluída, registra a data de conclusão, registra o usuário que concluiu a tarefa e atualiza as visualizações e indicadores. A tarefa deixa de ser considerada pendente ou atrasada. Por fim, o usuário visualiza a tarefa concluída e o processo é finalizado.](./modelagem_processos/fluxo_conclusao_tarefa.png)
 
 Tarefas concluídas não deverão ser consideradas atrasadas.
 
